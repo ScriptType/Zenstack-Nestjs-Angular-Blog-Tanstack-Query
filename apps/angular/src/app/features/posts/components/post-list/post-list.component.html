@@ -1,0 +1,39 @@
+<section class="space-y-6">
+  @if (loading()) {
+    <div class="grid grid-cols-3 gap-6">
+      <app-post-skeleton />
+      <app-post-skeleton />
+      <app-post-skeleton />
+    </div>
+  }
+
+  @if (posts().length) {
+    <div class="grid grid-cols-3 gap-6">
+      @for (p of posts(); track p.id) {
+        <app-post-card [post]="p" />
+      }
+    </div>
+  } @else if (!loading()) {
+    <div class="text-center text-slate-500 py-12">No posts found.</div>
+  }
+
+  <div class="flex justify-center">
+    @if (hasMore()) {
+      <button
+        type="button"
+        (click)="loadMore.emit()"
+        [disabled]="loadingMore()"
+        class="inline-flex items-center rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
+      >
+        @if (loadingMore()) {
+          <span
+            class="mr-2 inline-block h-4 w-4 animate-spin rounded-full border-2 border-slate-300 border-t-slate-600"
+          ></span>
+          Loading…
+        } @else {
+          Load more
+        }
+      </button>
+    }
+  </div>
+</section>

@@ -1,0 +1,44 @@
+<form class="space-y-6" (submit)="$event.preventDefault(); onSubmit()">
+  <div class="space-y-2">
+    <label class="block text-sm font-medium text-slate-700">Title</label>
+    <input
+      #titleEl
+      type="text"
+      class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400"
+      placeholder="Post title"
+      [value]="title() || initialTitle()"
+      (input)="title.set(titleEl.value)"
+      required
+    />
+  </div>
+
+  <div class="space-y-2">
+    <label class="block text-sm font-medium text-slate-700">Content</label>
+    <textarea
+      #contentEl
+      rows="12"
+      class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-slate-400"
+      placeholder="Write your post content..."
+      [value]="content() || initialContent()"
+      (input)="content.set(contentEl.value)"
+      required
+    ></textarea>
+  </div>
+
+  <div class="flex items-center gap-3">
+    <button
+      type="submit"
+      class="inline-flex items-center rounded-md bg-slate-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-slate-800 shadow-sm disabled:opacity-50"
+      [disabled]="!canSubmit()"
+    >
+      Save
+    </button>
+    <button
+      type="button"
+      (click)="onCancel()"
+      class="inline-flex items-center rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50 shadow-sm"
+    >
+      Cancel
+    </button>
+  </div>
+</form>

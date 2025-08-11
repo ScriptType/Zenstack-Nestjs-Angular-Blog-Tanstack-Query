@@ -1,0 +1,19 @@
+<div
+  class="relative inline-grid place-items-center rounded-full select-none font-semibold text-white bg-slate-700"
+  [style.width.px]="size()"
+  [style.height.px]="size()"
+  [style.line-height.px]="size()"
+  [attr.aria-label]="name() || email() || 'Avatar'"
+>
+  <span class="pointer-events-none">
+    {{ initials() }}
+  </span>
+
+  @if (badge()) {
+    <span
+      class="absolute -bottom-1 -right-1 rounded-full bg-slate-900 text-white text-[10px] leading-none px-1.5 py-0.5 shadow"
+    >
+      {{ badge() }}
+    </span>
+  }
+</div>

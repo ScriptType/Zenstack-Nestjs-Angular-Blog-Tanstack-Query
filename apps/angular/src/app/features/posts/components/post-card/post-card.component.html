@@ -1,0 +1,27 @@
+<article
+  class="rounded-lg border border-slate-200 bg-white shadow-sm hover:shadow transition"
+>
+  <a class="block p-5" [routerLink]="['/post', post().id]">
+    <h3
+      class="text-lg font-semibold tracking-tight text-slate-900 line-clamp-2"
+    >
+      {{ post().title }}
+    </h3>
+
+    <div class="mt-2 flex items-center gap-2 text-xs text-slate-500">
+      @if (post().author?.id) {
+        <a class="hover:underline" [routerLink]="['/u', post().author?.id]">
+          {{ post().author?.name || post().author?.email || "Unknown" }}
+        </a>
+        <span>•</span>
+      }
+      <span>{{ post().createdAt | date: "mediumDate" }}</span>
+    </div>
+
+    @if (post().content) {
+      <p class="mt-3 text-sm text-slate-700 line-clamp-3">
+        {{ post().content }}
+      </p>
+    }
+  </a>
+</article>

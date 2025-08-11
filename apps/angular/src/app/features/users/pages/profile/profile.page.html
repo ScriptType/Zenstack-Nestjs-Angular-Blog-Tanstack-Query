@@ -1,0 +1,29 @@
+<section class="space-y-6">
+  <nav class="text-sm">
+    <a routerLink="/" class="text-slate-600 hover:text-slate-900"
+      >&larr; Back to feed</a
+    >
+  </nav>
+
+  <header class="flex items-center gap-4">
+    <app-avatar
+      [name]="user()?.name ?? null"
+      [email]="user()?.email ?? null"
+      [size]="48"
+      [badge]="'author'"
+    ></app-avatar>
+    <div>
+      <h1 class="text-2xl font-semibold tracking-tight">
+        {{ user()?.name || user()?.email || "Unknown" }}
+      </h1>
+      <div class="text-sm text-slate-500">Posts by this author</div>
+    </div>
+  </header>
+
+  <app-post-list
+    [posts]="items()"
+    [loading]="loading()"
+    [hasMore]="postQuery.hasNextPage()"
+    (loadMore)="loadMore()"
+  />
+</section>

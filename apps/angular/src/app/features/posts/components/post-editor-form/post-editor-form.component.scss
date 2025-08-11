@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+label {
+  @apply text-slate-700;
+}
+
+input, textarea {
+  @apply focus:outline-none;
+}

@@ -1,0 +1,41 @@
+{
+  "name": "angular-nesstjs-elysia-blog",
+  "private": true,
+  "scripts": {
+    "generate": "zenstack generate && prisma db push",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:angular": "pnpm --filter @apps/angular dev",
+    "dev:nestjs": "pnpm --filter @apps/nestjs dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types"
+  },
+  "devDependencies": {
+    "@angular-eslint/eslint-plugin": "^20.1.1",
+    "@eslint/js": "^9.33.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "angular-eslint": "^20.1.1",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
+    "prisma": "6.12.x",
+    "turbo": "^2.5.5",
+    "typescript": "5.8.3",
+    "typescript-eslint": "^8.39.0",
+    "zenstack": "2.18",
+    "@zenstackhq/tanstack-query": "file:vendor/zenstackhq-tanstack-query-2.18.0.tgz"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@prisma/client": "6.13",
+    "@zenstackhq/runtime": "2.18",
+    "better-auth": "^1.3.4",
+    "zod": "^3.25.0"
+  }
+}

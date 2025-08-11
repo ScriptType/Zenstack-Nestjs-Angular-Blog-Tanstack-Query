@@ -1,0 +1,14 @@
+<div class="relative">
+  <input
+    #qInput
+    type="text"
+    class="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder-slate-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-400/40"
+    placeholder="Search posts..."
+    [value]="q()"
+    (input)="onInput(qInput.value)"
+    aria-label="Search posts"
+  />
+  <div
+    class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"
+  ></div>
+</div>

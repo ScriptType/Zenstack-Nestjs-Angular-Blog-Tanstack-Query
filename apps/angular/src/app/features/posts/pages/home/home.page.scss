@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+
+.refresh-delay {
+  opacity: 0;
+  animation: refreshDelayShow 0s linear 200ms forwards;
+}
+
+@keyframes refreshDelayShow {
+  to {
+    opacity: 1;
+  }
+}

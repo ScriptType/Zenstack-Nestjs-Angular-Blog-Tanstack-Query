@@ -1,0 +1,41 @@
+<div class="fixed bottom-6 right-6 z-50 w-[380px] space-y-3">
+  @for (t of service.toasts(); track t.id) {
+    <div
+      class="rounded-lg border shadow-lg bg-white text-slate-800 overflow-hidden"
+    >
+      <div class="flex items-start gap-3 p-4">
+        <div
+          [ngClass]="badgeClasses[t.type]"
+          class="mt-0.5 h-2.5 w-2.5 rounded-full flex-shrink-0"
+        ></div>
+        <div class="min-w-0 flex-1">
+          @if (t.title) {
+            <div class="font-semibold text-slate-900 text-sm mb-0.5 truncate">
+              {{ t.title }}
+            </div>
+          }
+          <div
+            class="text-sm leading-snug text-slate-700 break-words whitespace-pre-line"
+          >
+            {{ t.message }}
+          </div>
+        </div>
+        <button
+          type="button"
+          (click)="service.dismiss(t.id)"
+          class="ml-2 inline-flex h-6 w-6 items-center justify-center rounded-md text-slate-500 hover:text-slate-700 hover:bg-slate-100 transition"
+          aria-label="Dismiss"
+        >
+          ✕
+        </button>
+      </div>
+      <div class="h-1 bg-slate-100">
+        <div
+          class="h-1"
+          [ngClass]="progressClasses[t.type]"
+          [style.width.%]="100"
+        ></div>
+      </div>
+    </div>
+  }
+</div>
