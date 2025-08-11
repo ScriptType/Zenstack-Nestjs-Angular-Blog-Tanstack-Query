@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>ZenStack SaaS Demo</h1>
+    <h1>ZenStack Nestjs-Angular-Demo</h1>
     <a href="https://twitter.com/intent/tweet?text=Wow%20%40zenstackhq">
         <img src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fzenstackhq%2Fzenstack">
     </a>
